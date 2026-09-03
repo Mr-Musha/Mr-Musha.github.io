@@ -330,12 +330,13 @@
 .particles span {
     position: absolute;
     display: block;
-    width: 4px;
-    height: 4px;
+    width: 5px;
+    height: 5px;
     background: #ffae00;
     border-radius: 50%;
     opacity: 0;
-    animation: particleFloat 8s linear infinite;
+    box-shadow: 0 0 10px #ffae00, 0 0 20px rgba(255, 174, 0, 0.6);
+    animation: particleFloat 7s linear infinite;
 }
 
 .particles span:nth-child(1) {
@@ -392,21 +393,25 @@
     0% {
         top: 105%;
         opacity: 0;
-        transform: scale(0.5);
+        transform: scale(0.4);
     }
 
-    20% {
-        opacity: 0.7;
+    15% {
+        opacity: 0.9;
     }
 
-    80% {
-        opacity: 0.7;
+    50% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 0.8;
     }
 
     100% {
         top: -10%;
         opacity: 0;
-        transform: scale(1.4);
+        transform: scale(1.6);
     }
 }
 
