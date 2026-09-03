@@ -3,14 +3,533 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+
+    <title>Mr. Musha | Creator</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080b10;
+            color: white;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(8, 11, 16, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffae00;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #ffae00;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 150px 7% 80px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg, #080b10 15%, rgba(8,11,16,.75), rgba(8,11,16,.25)),
+                linear-gradient(135deg, #101923, #080b10);
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .tag {
+            color: #ffae00;
+            font-size: 16px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: clamp(45px, 7vw, 90px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #ffae00;
+        }
+
+        .hero p {
+            max-width: 600px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #b8bec8;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #ffae00;
+        }
+
+        .primary {
+            background: #ffae00;
+            color: #111;
+        }
+
+        .secondary {
+            color: white;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #ffae00;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: #11161e;
+            border: 1px solid #252c36;
+            border-radius: 18px;
+            padding: 30px;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #ffae00;
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #9ea6b2;
+            line-height: 1.6;
+        }
+
+        /* FEATURE */
+        .creator-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .creator-card {
+            min-height: 280px;
+            padding: 35px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #161d27, #0d1117);
+            border: 1px solid #252c36;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .creator-card h3 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .creator-card p {
+            color: #adb4bf;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 7%;
+            text-align: center;
+            border-top: 1px solid #252c36;
+            color: #89919d;
+        }
+
+        footer span {
+            color: #ffae00;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 18px 6%;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                min-height: 100vh;
+                padding: 130px 6% 70px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .cards,
+            .creator-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Welcome to My Website</h1>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">
+            MR<span>.</span>MUSHA
+        </div>
 
-    <p>My personal website is coming soon!</p>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#professional">Professional</a></li>
+            <li><a href="#vlog">Vlogging</a></li>
+            <li><a href="#gaming">Gaming</a></li>
+            <li><a href="#travel">Travel</a></li>
+            <li><a href="#food">Food</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                CREATOR • EXPLORER • GAMER
+            </div>
+
+            <h1>
+                I CREATE.<br>
+                I <span>EXPLORE.</span><br>
+                I SHARE.
+            </h1>
+
+            <p>
+                I'm a Video Editor, Vlogger, Gamer and Explorer.
+                I love travelling, discovering amazing food,
+                playing games and turning experiences into stories.
+            </p>
+
+            <div class="buttons">
+                <a href="#vlog" class="btn primary">
+                    🎥 Watch My Vlogs
+                </a>
+
+                <a href="#gaming" class="btn secondary">
+                    🎮 Enter Gaming
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROFESSIONAL -->
+    <section id="professional">
+
+        <h2 class="section-title">
+            My <span>Professional</span> Life
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">💼</div>
+                <h3>Professional Profile</h3>
+                <p>
+                    My professional journey, experience,
+                    skills and career information.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎬</div>
+                <h3>Video Editing</h3>
+                <p>
+                    Creative video editing, storytelling,
+                    cinematic content and editing projects.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏆</div>
+                <h3>Achievements</h3>
+                <p>
+                    Certificates, achievements,
+                    projects and professional milestones.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VLOGGING -->
+    <section id="vlog">
+
+        <h2 class="section-title">
+            🎥 <span>Vlogging</span> Channel
+        </h2>
+
+        <div class="creator-grid">
+
+            <div class="creator-card">
+                <h3>Travel Vlogs</h3>
+                <p>
+                    Exploring new places, meeting people
+                    and capturing unforgettable moments.
+                </p>
+            </div>
+
+            <div class="creator-card">
+                <h3>Food & Lifestyle</h3>
+                <p>
+                    Food exploration, lifestyle,
+                    fun and real-life experiences.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GAMING -->
+    <section id="gaming">
+
+        <h2 class="section-title">
+            🎮 <span>Gaming</span> Channel
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🎮</div>
+                <h3>Gameplay</h3>
+                <p>
+                    Gaming sessions, gameplay videos
+                    and exciting moments.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔥</div>
+                <h3>Highlights</h3>
+                <p>
+                    Best gaming moments, funny clips
+                    and epic highlights.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📺</div>
+                <h3>Gaming Content</h3>
+                <p>
+                    Follow my gaming journey and
+                    discover my favorite games.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRAVEL -->
+    <section id="travel">
+
+        <h2 class="section-title">
+            ✈️ <span>Travel</span> & Exploration
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🏔️</div>
+                <h3>Places I Explore</h3>
+                <p>
+                    Mountains, beaches, cities,
+                    villages and hidden gems.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📸</div>
+                <h3>Travel Stories</h3>
+                <p>
+                    Stories and memories captured
+                    through my camera.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌎</div>
+                <h3>Future Adventures</h3>
+                <p>
+                    More destinations, more adventures
+                    and more stories to come.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOD -->
+    <section id="food">
+
+        <h2 class="section-title">
+            🍔 <span>Food</span> Exploration
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🍜</div>
+                <h3>Food Reviews</h3>
+                <p>
+                    Discovering delicious food
+                    and sharing honest experiences.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📍</div>
+                <h3>Local Food</h3>
+                <p>
+                    Finding amazing local food
+                    wherever I travel.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">❤️</div>
+                <h3>Food I Love</h3>
+                <p>
+                    My favorite dishes, restaurants
+                    and memorable food moments.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <h2 class="section-title">
+            Let's <span>Connect</span>
+        </h2>
+
+        <div class="card">
+
+            <h3>Want to work together?</h3>
+
+            <p style="margin: 15px 0 25px;">
+                For video editing, collaborations,
+                travel content or other creative projects.
+            </p>
+
+            <a href="mailto:your@email.com" class="btn primary">
+                📩 Contact Me
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 <span>Mr. Musha</span> — Creator • Gamer • Explorer
+    </footer>
 
 </body>
 </html>
