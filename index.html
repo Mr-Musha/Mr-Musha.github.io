@@ -423,181 +423,6 @@ section,
 footer {
     position: relative;
     z-index: 1;
-}/* ===== HERO VISUAL ===== */
-
-.hero-visual {
-    position: relative;
-    width: 420px;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: heroFloat 5s ease-in-out infinite;
-}
-
-.visual-glow {
-    position: absolute;
-    width: 280px;
-    height: 280px;
-    background: #ffae00;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.18;
-    animation: glowPulse 3s ease-in-out infinite;
-}
-
-.visual-card {
-    position: relative;
-    width: 320px;
-    height: 420px;
-    padding: 25px;
-    border: 1px solid rgba(255, 174, 0, 0.35);
-    border-radius: 25px;
-    background: linear-gradient(
-        145deg,
-        rgba(255, 255, 255, 0.08),
-        rgba(255, 255, 255, 0.02)
-    );
-    backdrop-filter: blur(15px);
-    box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.5),
-        0 0 40px rgba(255, 174, 0, 0.12);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
-}
-
-.visual-card::before {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    top: -80px;
-    right: -80px;
-    background: #ffae00;
-    border-radius: 50%;
-    filter: blur(70px);
-    opacity: 0.12;
-}
-
-.visual-top,
-.visual-bottom {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    letter-spacing: 2px;
-}
-
-.visual-top {
-    color: #aaa;
-    font-size: 12px;
-}
-
-.visual-top span:last-child {
-    color: #ffae00;
-}
-
-.visual-center {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.play-orb {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 5px;
-    background: rgba(255, 174, 0, 0.12);
-    border: 2px solid rgba(255, 174, 0, 0.7);
-    color: #ffae00;
-    font-size: 30px;
-    box-shadow:
-        0 0 25px rgba(255, 174, 0, 0.4),
-        inset 0 0 25px rgba(255, 174, 0, 0.1);
-    animation: orbPulse 2s ease-in-out infinite;
-}
-
-.visual-bottom {
-    position: relative;
-    z-index: 2;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.visual-bottom strong {
-    color: white;
-    font-size: 14px;
-}
-
-.visual-bottom span {
-    color: #888;
-    font-size: 11px;
-    letter-spacing: 2px;
-}
-
-/* ===== HERO ANIMATIONS ===== */
-
-@keyframes heroFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-@keyframes glowPulse {
-    0%, 100% {
-        transform: scale(0.9);
-        opacity: 0.12;
-    }
-
-    50% {
-        transform: scale(1.15);
-        opacity: 0.25;
-    }
-}
-
-@keyframes orbPulse {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow:
-            0 0 25px rgba(255, 174, 0, 0.4),
-            inset 0 0 25px rgba(255, 174, 0, 0.1);
-    }
-
-    50% {
-        transform: scale(1.08);
-        box-shadow:
-            0 0 45px rgba(255, 174, 0, 0.7),
-            inset 0 0 30px rgba(255, 174, 0, 0.15);
-    }
-}
-
-/* ===== MOBILE HERO VISUAL ===== */
-
-@media (max-width: 768px) {
-
-    .hero-visual {
-        width: 100%;
-        height: 400px;
-        margin-top: 30px;
-    }
-
-    .visual-card {
-        width: 280px;
-        height: 360px;
-    }
-
 }</style>
 </head>
 
@@ -638,75 +463,38 @@ footer {
     <!-- HERO -->
     <section class="hero" id="home">
 
-     <div class="hero-content">
+        <div class="hero-content">
 
-    <div class="tag">
-        CREATOR • EXPLORER • GAMER
-    </div>
+            <div class="tag">
+                CREATOR • EXPLORER • GAMER
+            </div>
 
-    <h1>
-        I CREATE.<br>
-        I <span>EXPLORE.</span><br>
-        I SHARE.
-    </h1>
+            <h1>
+                I CREATE.<br>
+                I <span>EXPLORE.</span><br>
+                I SHARE.
+            </h1>
 
-    <p>
-        I'm a Video Editor, Vlogger, Gamer and Explorer.
-        I love travelling, discovering amazing food,
-        playing games and turning experiences into stories.
-    </p>
+            <p>
+                I'm a Video Editor, Vlogger, Gamer and Explorer.
+                I love travelling, discovering amazing food,
+                playing games and turning experiences into stories.
+            </p>
 
-    <div class="buttons">
-        <a href="#vlog" class="btn primary">
-            🎥 Watch My Vlogs
-        </a>
+            <div class="buttons">
+                <a href="#vlog" class="btn primary">
+                    🎥 Watch My Vlogs
+                </a>
 
-        <a href="#gaming" class="btn secondary">
-            🎮 Enter Gaming
-        </a>
-    </div>
+                <a href="#gaming" class="btn secondary">
+                    🎮 Enter Gaming
+                </a>
+            </div>
 
-    <div class="hero-stats">
-        <div>
-            <strong>VIDEO</strong>
-            <span>EDITOR</span>
         </div>
 
-        <div>
-            <strong>TRAVEL</strong>
-            <span>EXPLORER</span>
-        </div>
+    </section>
 
-        <div>
-            <strong>GAMING</strong>
-            <span>CREATOR</span>
-        </div>
-    </div>
-
-</div>
-<div class="hero-visual">
-
-    <div class="visual-glow"></div>
-
-    <div class="visual-card">
-
-        <div class="visual-top">
-            <span>MY WORLD</span>
-            <span>01</span>
-        </div>
-
-        <div class="visual-center">
-            <div class="play-orb">▶</div>
-        </div>
-
-        <div class="visual-bottom">
-            <strong>CREATE • EXPLORE • SHARE</strong>
-            <span>VIDEO • TRAVEL • GAMING</span>
-        </div>
-
-    </div>
-
-</div>
 
     <!-- PROFESSIONAL -->
     <section id="professional">
