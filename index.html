@@ -1040,13 +1040,134 @@ footer span {
                 </p>
             </div>
 
-            <div class="card">
-                <div class="card-icon">📸</div>
-                <h3>Travel Photography</h3>
-                <p>
-                    Your travel photos and visual stories will appear here.
-                </p>
-            </div>
+           <div class="card">
+    <h3>📸 Travel Photography</h3>
+
+    <div class="travel-slider">
+
+        <img id="travelSlide"
+             src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%201.jpeg?raw=true"
+             alt="Travel Photography">
+
+        <button class="slider-btn prev" onclick="changeTravelSlide(-1)">❮</button>
+        <button class="slider-btn next" onclick="changeTravelSlide(1)">❯</button>
+
+        <div class="slider-dots">
+            <span onclick="setTravelSlide(0)"></span>
+            <span onclick="setTravelSlide(1)"></span>
+            <span onclick="setTravelSlide(2)"></span>
+            <span onclick="setTravelSlide(3)"></span>
+            <span onclick="setTravelSlide(4)"></span>
+            <span onclick="setTravelSlide(5)"></span>
+        </div>
+
+    </div>
+</div>
+
+<style>
+.travel-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.travel-slider img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,.65);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.slider-btn:hover {
+    background: #ffae00;
+    color: #000;
+}
+
+.slider-btn.prev {
+    left: 12px;
+}
+
+.slider-btn.next {
+    right: 12px;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 7px;
+}
+
+.slider-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: .6;
+    cursor: pointer;
+}
+
+.slider-dots span.active {
+    background: #ffae00;
+    opacity: 1;
+}
+</style>
+
+<script>
+const travelPhotos = [
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%201.jpeg?raw=true",
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%202.jpeg?raw=true",
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%203.jpeg?raw=true",
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%204.jpeg?raw=true",
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%205.jpeg?raw=true",
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%206.jpeg?raw=true"
+];
+
+let currentTravelSlide = 0;
+
+function showTravelSlide(index) {
+    currentTravelSlide = (index + travelPhotos.length) % travelPhotos.length;
+
+    document.getElementById("travelSlide").src = travelPhotos[currentTravelSlide];
+
+    const dots = document.querySelectorAll(".slider-dots span");
+    dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentTravelSlide);
+    });
+}
+
+function changeTravelSlide(direction) {
+    showTravelSlide(currentTravelSlide + direction);
+}
+
+function setTravelSlide(index) {
+    showTravelSlide(index);
+}
+
+showTravelSlide(0);
+
+setInterval(() => {
+    changeTravelSlide(1);
+}, 4000);
+</script>
 
         </div>
 
