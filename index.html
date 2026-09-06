@@ -1033,12 +1033,28 @@ footer span {
             </div>
 
             <div class="card">
-                <div class="card-icon">🏍️</div>
-                <h3>Bike Adventures</h3>
-                <p>
-                    Long rides, road trips and unforgettable journeys.
-                </p>
-            </div>
+    <h3>🏍️ Bike Adventures</h3>
+
+    <div class="bike-slider">
+
+        <img id="bikeSlide"
+             src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%201.jpeg?raw=true"
+             alt="Bike Adventures">
+
+        <button class="bike-btn bike-prev" onclick="changeBikeSlide(-1)">❮</button>
+        <button class="bike-btn bike-next" onclick="changeBikeSlide(1)">❯</button>
+
+        <div class="bike-dots">
+            <span onclick="setBikeSlide(0)"></span>
+            <span onclick="setBikeSlide(1)"></span>
+            <span onclick="setBikeSlide(2)"></span>
+            <span onclick="setBikeSlide(3)"></span>
+            <span onclick="setBikeSlide(4)"></span>
+            <span onclick="setBikeSlide(5)"></span>
+        </div>
+
+    </div>
+</div>
 
            <div class="card">
     <h3>📸 Travel Photography</h3>
