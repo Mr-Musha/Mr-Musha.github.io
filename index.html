@@ -1,747 +1,1118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mr. Musha | Creator</title>
+<title>Mr.Musha.info | Creator • Explorer • Gamer</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta name="description" content="Mr.Musha.info - Video Editor, Vlogger, Gamer, Traveler and Food Explorer.">
 
-        html {
-            scroll-behavior: smooth;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #080b10;
-            color: white;
-        }
-
-        /* NAVBAR */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(8, 11, 16, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #ffae00;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 28px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        nav a:hover {
-            color: #ffae00;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            padding: 150px 7% 80px;
-            display: flex;
-            align-items: center;
-            background:
-                linear-gradient(90deg, #080b10 15%, rgba(8,11,16,.75), rgba(8,11,16,.25)),
-                linear-gradient(135deg, #101923, #080b10);
-        }
-
-        .hero-content {
-            max-width: 750px;
-        }
-
-        .tag {
-            color: #ffae00;
-            font-size: 16px;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        h1 {
-            font-size: clamp(45px, 7vw, 90px);
-            line-height: 1;
-            margin-bottom: 25px;
-        }
-
-        h1 span {
-            color: #ffae00;
-        }
-
-        .hero p {
-            max-width: 600px;
-            font-size: 18px;
-            line-height: 1.7;
-            color: #b8bec8;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 24px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border: 1px solid #ffae00;
-        }
-
-        .primary {
-            background: #ffae00;
-            color: #111;
-        }
-
-        .secondary {
-            color: white;
-        }
-
-        /* SECTIONS */
-        section {
-            padding: 90px 7%;
-        }
-
-        .section-title {
-            font-size: 38px;
-            margin-bottom: 45px;
-        }
-
-        .section-title span {
-            color: #ffae00;
-        }
-
-        /* CARDS */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .card {
-            background: #11161e;
-            border: 1px solid #252c36;
-            border-radius: 18px;
-            padding: 30px;
-            transition: .3s;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: #ffae00;
-        }
-
-        .icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: #9ea6b2;
-            line-height: 1.6;
-        }
-
-        /* FEATURE */
-        .creator-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .creator-card {
-            min-height: 280px;
-            padding: 35px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #161d27, #0d1117);
-            border: 1px solid #252c36;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
-
-        .creator-card h3 {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
-
-        .creator-card p {
-            color: #adb4bf;
-            line-height: 1.6;
-        }
-
-        /* FOOTER */
-        footer {
-            padding: 40px 7%;
-            text-align: center;
-            border-top: 1px solid #252c36;
-            color: #89919d;
-        }
-
-        footer span {
-            color: #ffae00;
-        }
-
-        /* MOBILE */
-        @media (max-width: 800px) {
-
-            nav {
-                padding: 18px 6%;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            .hero {
-                min-height: 100vh;
-                padding: 130px 6% 70px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            section {
-                padding: 70px 6%;
-            }
-
-            .cards,
-            .creator-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 30px;
-            }
-        }
-    /* ===== LIVE ANIMATIONS ===== */
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(35px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+:root {
+    --bg: #080808;
+    --card: #111111;
+    --card2: #161616;
+    --text: #ffffff;
+    --muted: #999999;
+    --accent: #ffae00;
+    --accent2: #ff6a00;
+    --border: rgba(255,174,0,.18);
 }
 
-@keyframes glow {
-    0%, 100% {
-        box-shadow: 0 0 10px rgba(255, 174, 0, 0.15);
-    }
-    50% {
-        box-shadow: 0 0 35px rgba(255, 174, 0, 0.45);
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
 }
 
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-.hero-content {
-    animation: fadeUp 1.2s ease forwards;
+section {
+    padding: 110px 7%;
+    position: relative;
 }
 
-.hero h1 {
-    animation: fadeUp 1s ease 0.4s both;
+.container {
+    max-width: 1250px;
+    margin: auto;
 }
 
-.hero p {
-    animation: fadeUp 1s ease 0.6s both;
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
 }
 
-.buttons {
-    animation: fadeUp 1s ease 0.8s both;
+.section-title .small {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.section-title h2 {
+    font-size: clamp(30px, 5vw, 55px);
+    font-weight: 900;
+}
+
+.section-title p {
+    color: var(--muted);
+    max-width: 600px;
+    margin: 18px auto 0;
+    line-height: 1.8;
+}
+
+/* NAVBAR */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 22px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(8,8,8,.75);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,.05);
 }
 
 .logo {
-    animation: pulse 3s ease-in-out infinite;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #aaa;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.menu-btn {
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    padding-top: 160px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-grid {
+    max-width: 1250px;
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.tag {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 90px);
+    line-height: 1.02;
+    font-weight: 900;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero p {
+    max-width: 580px;
+    color: var(--muted);
+    line-height: 1.9;
+    margin: 30px 0;
+    font-size: 15px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .3s;
 }
 
 .primary {
-    animation: glow 2.5s ease-in-out infinite;
+    background: var(--accent);
+    color: #000;
 }
 
-.card:hover,
-.creator-card:hover {
-    animation: float 1.5s ease-in-out infinite;
-}/* ===== CINEMATIC PARTICLES ===== */
+.primary:hover {
+    background: #ffc34d;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(255,174,0,.25);
+}
+
+.secondary {
+    border: 1px solid #333;
+    color: white;
+}
+
+.secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-4px);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 35px;
+    margin-top: 45px;
+}
+
+.hero-stats strong {
+    display: block;
+    color: var(--accent);
+    font-size: 18px;
+}
+
+.hero-stats span {
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* HERO VISUAL */
+
+.hero-visual {
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-visual::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--accent);
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: .15;
+}
+
+.visual-card {
+    width: 330px;
+    height: 430px;
+    padding: 25px;
+    border-radius: 25px;
+    border: 1px solid var(--border);
+    background: linear-gradient(145deg,#1c1c1c,#0d0d0d);
+    box-shadow: 0 30px 100px rgba(0,0,0,.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: float 5s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.visual-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,transparent,rgba(255,174,0,.08),transparent);
+    transform: translateX(-100%);
+    animation: shine 4s infinite;
+}
+
+.visual-top,
+.visual-bottom {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.visual-top {
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.visual-top span:last-child {
+    color: var(--accent);
+}
+
+.visual-center {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.play-orb {
+    width: 105px;
+    height: 105px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 30px;
+    padding-left: 5px;
+    box-shadow: 0 0 40px rgba(255,174,0,.25);
+    animation: pulse 2s infinite;
+}
+
+.visual-bottom {
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.visual-bottom strong {
+    font-size: 13px;
+}
+
+.visual-bottom span {
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 15px;
+    padding: 35px;
+    transition: .35s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border);
+    box-shadow: 0 20px 50px rgba(0,0,0,.25);
+}
+
+.card-icon {
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.card a {
+    display: inline-block;
+    color: var(--accent);
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* PROFESSIONAL */
+
+.professional {
+    background: #0c0c0c;
+}
+
+.skill {
+    margin-top: 25px;
+}
+
+.skill-title {
+    display: flex;
+    justify-content: space-between;
+    color: #ccc;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.skill-bar {
+    height: 6px;
+    background: #222;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.skill-bar span {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+    border-radius: 20px;
+}
+
+/* FEATURED */
+
+.featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.feature {
+    min-height: 260px;
+    border-radius: 18px;
+    padding: 35px;
+    background: linear-gradient(135deg,#1a1a1a,#101010);
+    border: 1px solid rgba(255,255,255,.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: .3s;
+}
+
+.feature:hover {
+    transform: scale(1.02);
+    border-color: var(--border);
+}
+
+.feature .emoji {
+    font-size: 45px;
+    margin-bottom: auto;
+}
+
+.feature h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-box {
+    height: 400px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: linear-gradient(145deg,#191919,#0d0d0d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-box .initial {
+    font-size: 100px;
+    font-weight: 900;
+    color: var(--accent);
+}
+
+.about-text h2 {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.about-text p {
+    color: var(--muted);
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+/* CONTACT */
+
+.contact {
+    background: #0c0c0c;
+}
+
+.contact-box {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding: 60px 30px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: linear-gradient(145deg,#171717,#0e0e0e);
+}
+
+.contact-box h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.contact-box p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.socials a {
+    padding: 12px 18px;
+    border: 1px solid #333;
+    border-radius: 7px;
+    color: #aaa;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.socials a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 7%;
+    text-align: center;
+    color: #555;
+    font-size: 12px;
+    border-top: 1px solid #151515;
+}
+
+footer span {
+    color: var(--accent);
+}
+
+/* PARTICLES */
 
 .particles {
     position: fixed;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
     pointer-events: none;
-    z-index: 0;
+    overflow: hidden;
+    z-index: -1;
 }
 
 .particles span {
     position: absolute;
-    display: block;
-    width: 5px;
-    height: 5px;
-    background: #ffae00;
+    bottom: -10px;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
     border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent);
+    animation: particle 10s linear infinite;
     opacity: 0;
-    box-shadow: 0 0 10px #ffae00, 0 0 20px rgba(255, 174, 0, 0.6);
-    animation: particleFloat 7s linear infinite;
 }
 
-.particles span:nth-child(1) {
-    left: 10%;
-    animation-delay: 0s;
+.particles span:nth-child(1){left:10%;animation-delay:0s}
+.particles span:nth-child(2){left:20%;animation-delay:2s}
+.particles span:nth-child(3){left:30%;animation-delay:4s}
+.particles span:nth-child(4){left:40%;animation-delay:1s}
+.particles span:nth-child(5){left:50%;animation-delay:5s}
+.particles span:nth-child(6){left:60%;animation-delay:3s}
+.particles span:nth-child(7){left:70%;animation-delay:6s}
+.particles span:nth-child(8){left:80%;animation-delay:2.5s}
+.particles span:nth-child(9){left:90%;animation-delay:4.5s}
+
+/* ANIMATIONS */
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
-.particles span:nth-child(2) {
-    left: 20%;
-    animation-delay: 2s;
+@keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
 }
 
-.particles span:nth-child(3) {
-    left: 30%;
-    animation-delay: 4s;
+@keyframes shine {
+    0% { transform: translateX(-100%); }
+    35%,100% { transform: translateX(100%); }
 }
 
-.particles span:nth-child(4) {
-    left: 40%;
-    animation-delay: 1s;
+@keyframes particle {
+    0% { transform: translateY(0); opacity: 0; }
+    15% { opacity: .8; }
+    85% { opacity: .6; }
+    100% { transform: translateY(-110vh); opacity: 0; }
 }
 
-.particles span:nth-child(5) {
-    left: 50%;
-    animation-delay: 5s;
-}
+/* MOBILE */
 
-.particles span:nth-child(6) {
-    left: 60%;
-    animation-delay: 3s;
-}
-
-.particles span:nth-child(7) {
-    left: 70%;
-    animation-delay: 6s;
-}
-
-.particles span:nth-child(8) {
-    left: 80%;
-    animation-delay: 2.5s;
-}
-
-.particles span:nth-child(9) {
-    left: 90%;
-    animation-delay: 4.5s;
-}
-
-.particles span:nth-child(10) {
-    left: 95%;
-    animation-delay: 7s;
-}
-
-@keyframes particleFloat {
-    0% {
-        top: 105%;
-        opacity: 0;
-        transform: scale(0.4);
+@media(max-width:900px) {
+    .nav-links {
+        position: absolute;
+        top: 75px;
+        right: 7%;
+        width: 230px;
+        padding: 25px;
+        background: #151515;
+        border: 1px solid #333;
+        border-radius: 12px;
+        flex-direction: column;
+        gap: 20px;
+        display: none;
     }
 
-    15% {
-        opacity: 0.9;
+    .nav-links.active {
+        display: flex;
     }
 
-    50% {
-        opacity: 1;
+    .menu-btn {
+        display: block;
     }
 
-    85% {
-        opacity: 0.8;
+    .hero-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
     }
 
-    100% {
-        top: -10%;
-        opacity: 0;
-        transform: scale(1.6);
+    .hero {
+        padding-top: 130px;
+    }
+
+    .hero-visual {
+        min-height: 400px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .featured {
+        grid-template-columns: 1fr;
+    }
+
+    .about-box {
+        height: 300px;
+    }
+
+    .about-text h2 {
+        font-size: 32px;
     }
 }
 
-/* Keep website content above particles */
+@media(max-width:500px) {
+    section {
+        padding: 80px 5%;
+    }
 
-nav,
-.hero-content,
-section,
-footer {
-    position: relative;
-    z-index: 1;
-}</style>
+    nav {
+        padding: 20px 5%;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero-stats {
+        gap: 20px;
+    }
+
+    .visual-card {
+        width: 280px;
+        height: 370px;
+    }
+
+    .contact-box h2 {
+        font-size: 30px;
+    }
+}
+</style>
 </head>
 
 <body>
-    
-    <!-- CINEMATIC BACKGROUND -->
+
 <div class="particles">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
 </div>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="logo">
-            MR<span>.</span>MUSHA
-        </div>
+<!-- NAVBAR -->
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#professional">Professional</a></li>
-            <li><a href="#vlog">Vlogging</a></li>
-            <li><a href="#gaming">Gaming</a></li>
-            <li><a href="#travel">Travel</a></li>
-            <li><a href="#food">Food</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<nav>
+    <a href="#home" class="logo">Mr<span>.</span>Musha<span>.info</span></a>
 
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#professional">Professional</a></li>
+        <li><a href="#vlogging">Vlogging</a></li>
+        <li><a href="#gaming">Gaming</a></li>
+        <li><a href="#travel">Travel</a></li>
+        <li><a href="#food">Food</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 
-    
-   <!-- HERO -->
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- HERO -->
+
 <section class="hero" id="home">
+    <div class="hero-grid">
 
-    <div class="hero-content">
+        <div>
+            <div class="tag">CREATOR • EXPLORER • GAMER</div>
 
-        <div class="tag">
-            CREATOR • EXPLORER • GAMER
+            <h1>
+                I CREATE.<br>
+                I <span>EXPLORE.</span><br>
+                I SHARE.
+            </h1>
+
+            <p>
+                I'm a Video Editor, Vlogger, Gamer and Explorer.
+                I love travelling, discovering amazing food,
+                playing games and turning experiences into stories.
+            </p>
+
+            <div class="buttons">
+                <a href="#vlogging" class="btn primary">🎥 Watch My Vlogs</a>
+                <a href="#gaming" class="btn secondary">🎮 Enter Gaming</a>
+            </div>
+
+            <div class="hero-stats">
+                <div>
+                    <strong>VIDEO</strong>
+                    <span>EDITOR</span>
+                </div>
+                <div>
+                    <strong>TRAVEL</strong>
+                    <span>EXPLORER</span>
+                </div>
+                <div>
+                    <strong>GAMING</strong>
+                    <span>CREATOR</span>
+                </div>
+            </div>
         </div>
 
-        <h1>
-            I CREATE.<br>
-            I <span>EXPLORE.</span><br>
-            I SHARE.
-        </h1>
+        <div class="hero-visual">
+            <div class="visual-card">
+                <div class="visual-top">
+                    <span>MY WORLD</span>
+                    <span>01</span>
+                </div>
 
-        <p>
-            I'm a Video Editor, Vlogger, Gamer and Explorer.
-            I love travelling, discovering amazing food,
-            playing games and turning experiences into stories.
-        </p>
+                <div class="visual-center">
+                    <div class="play-orb">▶</div>
+                </div>
 
-        <div class="buttons">
-            <a href="#vlog" class="btn primary">
-                🎥 Watch My Vlogs
-            </a>
-
-            <a href="#gaming" class="btn secondary">
-                🎮 Enter Gaming
-            </a>
+                <div class="visual-bottom">
+                    <strong>CREATE • EXPLORE • SHARE</strong>
+                    <span>VIDEO • TRAVEL • GAMING</span>
+                </div>
+            </div>
         </div>
 
     </div>
-
-    <div class="hero-visual">
-
-        <div class="visual-card">
-
-            <div class="visual-top">
-                <span>MY WORLD</span>
-                <span>01</span>
-            </div>
-
-            <div class="visual-center">
-                <div class="play-orb">▶</div>
-            </div>
-
-            <div class="visual-bottom">
-                <strong>CREATE • EXPLORE • SHARE</strong>
-                <span>VIDEO • TRAVEL • GAMING</span>
-            </div>
-
-        </div>
-
-    </div>
-
 </section>
 
+<!-- PROFESSIONAL -->
 
-    <!-- PROFESSIONAL -->
-    <section id="professional">
+<section class="professional" id="professional">
+    <div class="container">
 
-        <h2 class="section-title">
-            My <span>Professional</span> Life
-        </h2>
+        <div class="section-title">
+            <div class="small">MY PROFESSIONAL LIFE</div>
+            <h2>Turning Ideas Into <span style="color:#ffae00">Stories.</span></h2>
+            <p>
+                I create engaging visual content through video editing,
+                storytelling and creative production.
+            </p>
+        </div>
 
         <div class="cards">
 
             <div class="card">
-                <div class="icon">💼</div>
-                <h3>Professional Profile</h3>
-                <p>
-                    My professional journey, experience,
-                    skills and career information.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">🎬</div>
+                <div class="card-icon">🎬</div>
                 <h3>Video Editing</h3>
                 <p>
-                    Creative video editing, storytelling,
-                    cinematic content and editing projects.
+                    Cinematic edits, travel videos, gaming highlights,
+                    social media content and storytelling.
                 </p>
             </div>
 
             <div class="card">
-                <div class="icon">🏆</div>
-                <h3>Achievements</h3>
+                <div class="card-icon">💼</div>
+                <h3>Professional Work</h3>
                 <p>
-                    Certificates, achievements,
-                    projects and professional milestones.
+                    Add your work experience, projects, achievements
+                    and professional journey here.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Creative Services</h3>
+                <p>
+                    Video editing, short-form content, thumbnails
+                    and creative media production.
                 </p>
             </div>
 
         </div>
 
-    </section>
+        <div style="max-width:700px;margin:50px auto 0">
 
+            <div class="skill">
+                <div class="skill-title">
+                    <span>Video Editing</span>
+                    <span>90%</span>
+                </div>
+                <div class="skill-bar"><span style="width:90%"></span></div>
+            </div>
 
-    <!-- VLOGGING -->
-    <section id="vlog">
+            <div class="skill">
+                <div class="skill-title">
+                    <span>Storytelling</span>
+                    <span>85%</span>
+                </div>
+                <div class="skill-bar"><span style="width:85%"></span></div>
+            </div>
 
-        <h2 class="section-title">
-            🎥 <span>Vlogging</span> Channel
-        </h2>
+            <div class="skill">
+                <div class="skill-title">
+                    <span>Creative Direction</span>
+                    <span>80%</span>
+                </div>
+                <div class="skill-bar"><span style="width:80%"></span></div>
+            </div>
 
-        <div class="creator-grid">
+        </div>
 
-            <div class="creator-card">
+    </div>
+</section>
+
+<!-- VLOGGING -->
+
+<section id="vlogging">
+    <div class="container">
+
+        <div class="section-title">
+            <div class="small">MY VLOGGING CHANNEL</div>
+            <h2>Explore With <span style="color:#ffae00">Me.</span></h2>
+            <p>
+                Travel, food, lifestyle and real experiences
+                captured through my camera.
+            </p>
+        </div>
+
+        <div class="featured">
+
+            <div class="feature">
+                <div class="emoji">🎥</div>
                 <h3>Travel Vlogs</h3>
                 <p>
-                    Exploring new places, meeting people
-                    and capturing unforgettable moments.
+                    Discovering beautiful places and sharing
+                    the journey with you.
                 </p>
+                <a href="#" target="_blank">Watch Channel →</a>
             </div>
 
-            <div class="creator-card">
+            <div class="feature">
+                <div class="emoji">🍜</div>
                 <h3>Food & Lifestyle</h3>
                 <p>
-                    Food exploration, lifestyle,
-                    fun and real-life experiences.
+                    Exploring local food, restaurants and
+                    everyday adventures.
                 </p>
+                <a href="#" target="_blank">Watch Videos →</a>
             </div>
 
         </div>
 
-    </section>
+    </div>
+</section>
 
+<!-- GAMING -->
 
-    <!-- GAMING -->
-    <section id="gaming">
+<section class="professional" id="gaming">
+    <div class="container">
 
-        <h2 class="section-title">
-            🎮 <span>Gaming</span> Channel
-        </h2>
+        <div class="section-title">
+            <div class="small">MY GAMING CHANNEL</div>
+            <h2>Play. <span style="color:#ffae00">Compete.</span> Repeat.</h2>
+            <p>
+                Gameplay, highlights, challenges and gaming moments.
+            </p>
+        </div>
 
         <div class="cards">
 
             <div class="card">
-                <div class="icon">🎮</div>
+                <div class="card-icon">🎮</div>
                 <h3>Gameplay</h3>
                 <p>
-                    Gaming sessions, gameplay videos
-                    and exciting moments.
+                    Full gameplay videos and exciting gaming sessions.
                 </p>
+                <a href="#" target="_blank">Watch Gameplay →</a>
             </div>
 
             <div class="card">
-                <div class="icon">🔥</div>
+                <div class="card-icon">🔥</div>
                 <h3>Highlights</h3>
                 <p>
-                    Best gaming moments, funny clips
-                    and epic highlights.
+                    Best moments, clutch plays and funny highlights.
+                </p>
+                <a href="#" target="_blank">View Highlights →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🏆</div>
+                <h3>Challenges</h3>
+                <p>
+                    Gaming challenges, competitions and experiments.
+                </p>
+                <a href="#" target="_blank">Explore Gaming →</a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- TRAVEL -->
+
+<section id="travel">
+    <div class="container">
+
+        <div class="section-title">
+            <div class="small">TRAVEL DIARIES</div>
+            <h2>Go Somewhere. <span style="color:#ffae00">Feel Everything.</span></h2>
+            <p>
+                Every journey becomes a story worth remembering.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🏔️</div>
+                <h3>Beautiful Destinations</h3>
+                <p>
+                    Add your favourite destinations, travel memories
+                    and future tour plans here.
                 </p>
             </div>
 
             <div class="card">
-                <div class="icon">📺</div>
-                <h3>Gaming Content</h3>
+                <div class="card-icon">🏍️</div>
+                <h3>Bike Adventures</h3>
                 <p>
-                    Follow my gaming journey and
-                    discover my favorite games.
+                    Long rides, road trips and unforgettable journeys.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📸</div>
+                <h3>Travel Photography</h3>
+                <p>
+                    Your travel photos and visual stories will appear here.
                 </p>
             </div>
 
         </div>
 
-    </section>
+    </div>
+</section>
 
+<!-- FOOD -->
 
-    <!-- TRAVEL -->
-    <section id="travel">
+<section class="professional" id="food">
+    <div class="container">
 
-        <h2 class="section-title">
-            ✈️ <span>Travel</span> & Exploration
-        </h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <div class="icon">🏔️</div>
-                <h3>Places I Explore</h3>
-                <p>
-                    Mountains, beaches, cities,
-                    villages and hidden gems.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">📸</div>
-                <h3>Travel Stories</h3>
-                <p>
-                    Stories and memories captured
-                    through my camera.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">🌎</div>
-                <h3>Future Adventures</h3>
-                <p>
-                    More destinations, more adventures
-                    and more stories to come.
-                </p>
-            </div>
-
+        <div class="section-title">
+            <div class="small">FOOD EXPLORER</div>
+            <h2>Good Food. <span style="color:#ffae00">Great Stories.</span></h2>
+            <p>
+                Exploring flavours, local dishes and unforgettable food experiences.
+            </p>
         </div>
 
-    </section>
-
-
-    <!-- FOOD -->
-    <section id="food">
-
-        <h2 class="section-title">
-            🍔 <span>Food</span> Exploration
-        </h2>
-
         <div class="cards">
 
             <div class="card">
-                <div class="icon">🍜</div>
-                <h3>Food Reviews</h3>
-                <p>
-                    Discovering delicious food
-                    and sharing honest experiences.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">📍</div>
+                <div class="card-icon">🍛</div>
                 <h3>Local Food</h3>
                 <p>
-                    Finding amazing local food
-                    wherever I travel.
+                    Discovering traditional food and hidden food spots.
                 </p>
             </div>
 
             <div class="card">
-                <div class="icon">❤️</div>
-                <h3>Food I Love</h3>
+                <div class="card-icon">🍔</div>
+                <h3>Food Reviews</h3>
                 <p>
-                    My favorite dishes, restaurants
-                    and memorable food moments.
+                    Honest reviews, favourite dishes and food adventures.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">☕</div>
+                <h3>Food Stories</h3>
+                <p>
+                    Every dish has a story. Here I share mine.
                 </p>
             </div>
 
         </div>
 
-    </section>
+    </div>
+</section>
 
+<!-- ABOUT -->
 
-    <!-- CONTACT -->
-    <section id="contact">
+<section id="about">
+    <div class="container">
 
-        <h2 class="section-title">
-            Let's <span>Connect</span>
-        </h2>
+        <div class="about-grid">
 
-        <div class="card">
+            <div class="about-box">
+                <div class="initial">MM</div>
+            </div>
 
-            <h3>Want to work together?</h3>
+            <div class="about-text">
+                <div class="tag">ABOUT ME</div>
 
-            <p style="margin: 15px 0 25px;">
-                For video editing, collaborations,
-                travel content or other creative projects.
+                <h2>More Than A Creator.</h2>
+
+                <p>
+                    I'm Mr. Musha — a video editor, vlogger, gamer,
+                    traveller and food explorer.
+                </p>
+
+                <p>
+                    I believe every experience can become a story,
+                    and every story deserves to be shared.
+                </p>
+
+                <a href="#contact" class="btn primary">Let's Connect</a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+    <div class="container">
+
+        <div class="contact-box">
+
+            <div class="tag">GET IN TOUCH</div>
+
+            <h2>Let's Create Something.</h2>
+
+            <p>
+                Have a project, collaboration idea or just want to say hello?
+                Feel free to reach out.
             </p>
 
             <a href="mailto:your@email.com" class="btn primary">
                 📩 Contact Me
             </a>
 
+            <div class="socials">
+                <a href="#" target="_blank">YouTube</a>
+                <a href="#" target="_blank">Facebook</a>
+                <a href="#" target="_blank">Instagram</a>
+                <a href="#" target="_blank">TikTok</a>
+            </div>
+
         </div>
 
-    </section>
+    </div>
+</section>
 
+<!-- FOOTER -->
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 <span>Mr. Musha</span> — Creator • Gamer • Explorer
-    </footer>
+<footer>
+    © 2026 <span>Mr.Musha.info</span> — Creator • Explorer • Gamer
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+document.querySelectorAll(".nav-links a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        document.getElementById("navLinks").classList.remove("active");
+    });
+});
+</script>
 
 </body>
 </html>
