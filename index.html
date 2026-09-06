@@ -1096,7 +1096,22 @@ footer span {
     display: block;
 }
 
-.slider-btn {
+.bike-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.bike-slider img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.bike-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -1110,20 +1125,20 @@ footer span {
     cursor: pointer;
 }
 
-.slider-btn:hover {
+.bike-btn:hover {
     background: #ffae00;
     color: #000;
 }
 
-.slider-btn.prev {
+.bike-prev {
     left: 12px;
 }
 
-.slider-btn.next {
+.bike-next {
     right: 12px;
 }
 
-.slider-dots {
+.bike-dots {
     position: absolute;
     bottom: 12px;
     left: 50%;
@@ -1132,7 +1147,7 @@ footer span {
     gap: 7px;
 }
 
-.slider-dots span {
+.bike-dots span {
     width: 9px;
     height: 9px;
     border-radius: 50%;
@@ -1141,7 +1156,7 @@ footer span {
     cursor: pointer;
 }
 
-.slider-dots span.active {
+.bike-dots span.active {
     background: #ffae00;
     opacity: 1;
 }
