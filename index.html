@@ -274,12 +274,11 @@ nav {
     background: linear-gradient(120deg,transparent,rgba(255,174,0,.08),transparent);
     transform: translateX(-100%);
     animation: shine 4s infinite;
+    pointer-events: none;
 }
 
 .visual-top,
 .visual-bottom {
-    display: flex;
-    justify-content: space-between;
     position: relative;
     z-index: 3;
 }
@@ -299,6 +298,7 @@ nav {
     z-index: 2;
     overflow: hidden;
     border-radius: 20px;
+    margin-top: 15px;
 }
 
 .visual-center > a {
@@ -341,10 +341,9 @@ nav {
 }
 
 .visual-bottom {
+    display: flex;
     flex-direction: column;
     gap: 12px;
-    position: relative;
-    z-index: 3;
     margin-top: 15px;
 }
 
@@ -362,7 +361,7 @@ nav {
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
@@ -403,6 +402,22 @@ nav {
     margin-top: 20px;
     font-size: 13px;
     font-weight: 700;
+}
+
+/* CENTERED PORTFOLIO */
+
+.portfolio-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    max-width: 850px;
+    margin: 25px auto 0;
+}
+
+.portfolio-row .card {
+    flex: 1;
+    max-width: 400px;
 }
 
 /* PROFESSIONAL */
@@ -485,7 +500,13 @@ nav {
     line-height: 1.7;
 }
 
-/* TRAVEL SLIDERS */
+/* TRAVEL */
+
+.travel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
 
 .travel-card,
 .bike-card {
@@ -587,16 +608,14 @@ nav {
     border-radius: 20px;
     border: 1px solid var(--border);
     background: linear-gradient(145deg,#191919,#0d0d0d);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    overflow: hidden;
 }
 
-.about-box .initial {
-    font-size: 100px;
-    font-weight: 900;
-    color: var(--accent);
+.about-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .about-text h2 {
@@ -767,7 +786,20 @@ footer span {
         grid-template-columns: 1fr;
     }
 
+    .portfolio-row {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .portfolio-row .card {
+        max-width: 100%;
+    }
+
     .featured {
+        grid-template-columns: 1fr;
+    }
+
+    .travel-grid {
         grid-template-columns: 1fr;
     }
 
@@ -861,10 +893,14 @@ footer span {
 <!-- HERO -->
 
 <section class="hero" id="home">
+
     <div class="hero-grid">
 
         <div>
-            <div class="tag">CREATOR • EXPLORER • GAMER</div>
+
+            <div class="tag">
+                CREATOR • EXPLORER • GAMER
+            </div>
 
             <h1>
                 I CREATE.<br>
@@ -879,11 +915,19 @@ footer span {
             </p>
 
             <div class="buttons">
-                <a href="#vlogging" class="btn primary">🎥 Watch My Vlogs</a>
-                <a href="#gaming" class="btn secondary">🎮 Enter Gaming</a>
+
+                <a href="#vlogging" class="btn primary">
+                    🎥 Watch My Vlogs
+                </a>
+
+                <a href="#gaming" class="btn secondary">
+                    🎮 Enter Gaming
+                </a>
+
             </div>
 
             <div class="hero-stats">
+
                 <div>
                     <strong>VIDEO</strong>
                     <span>EDITOR</span>
@@ -898,7 +942,9 @@ footer span {
                     <strong>GAMING</strong>
                     <span>CREATOR</span>
                 </div>
+
             </div>
+
         </div>
 
         <div class="hero-visual">
@@ -911,8 +957,10 @@ footer span {
 
                 <div class="visual-center">
 
-                    <a href="https://www.youtube.com/watch?v=F2DeKmxzT3s"
-                       target="_blank">
+                    <a
+                        href="https://www.youtube.com/watch?v=F2DeKmxzT3s"
+                        target="_blank"
+                    >
 
                         <img
                             src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/My%20Bike.jpeg?raw=true"
@@ -926,8 +974,15 @@ footer span {
                 </div>
 
                 <div class="visual-bottom">
-                    <strong>CREATE • EXPLORE • SHARE</strong>
-                    <span>VIDEO • TRAVEL • GAMING</span>
+
+                    <strong>
+                        CREATE • EXPLORE • SHARE
+                    </strong>
+
+                    <span>
+                        VIDEO • TRAVEL • GAMING
+                    </span>
+
                 </div>
 
             </div>
@@ -935,6 +990,7 @@ footer span {
         </div>
 
     </div>
+
 </section>
 
 <!-- PROFESSIONAL -->
@@ -944,18 +1000,27 @@ footer span {
     <div class="container">
 
         <div class="section-title">
-            <div class="small">MY PROFESSIONAL LIFE</div>
+
+            <div class="small">
+                MY PROFESSIONAL LIFE
+            </div>
 
             <h2>
                 Turning Ideas Into
-                <span style="color:#ffae00">Stories.</span>
+                <span style="color:#ffae00">
+                    Stories.
+                </span>
             </h2>
 
             <p>
                 I create engaging visual content through video editing,
                 storytelling, exploration and real-world experience.
             </p>
+
         </div>
+
+
+        <!-- TOP 3 PROFESSIONAL CARDS -->
 
         <div class="cards">
 
@@ -965,24 +1030,36 @@ footer span {
 
                 <div class="card-icon">🎬</div>
 
-                <h3>Video Editing</h3>
+                <h3>
+                    Video Editing
+                </h3>
 
                 <p>
-                    <strong>9+ Years of Experience</strong>
+                    <strong>
+                        9+ Years of Experience
+                    </strong>
                 </p>
 
                 <p>
-                    <strong>Software & Tools:</strong><br>
+                    <strong>
+                        Software & Tools:
+                    </strong><br>
+
                     Adobe Premiere Pro • After Effects • Camtasia • CapCut
                 </p>
 
                 <p>
-                    <strong>Specialized In:</strong><br>
+                    <strong>
+                        Specialized In:
+                    </strong><br>
+
                     ✈️ Travel Vlog — Full Editing + Color Grading<br>
+
                     🎮 Gaming Video — Gameplay + Highlights
                 </p>
 
             </div>
+
 
             <!-- TRAVELING -->
 
@@ -990,19 +1067,29 @@ footer span {
 
                 <div class="card-icon">🏍️</div>
 
-                <h3>Traveling & Bike Riding</h3>
+                <h3>
+                    Traveling & Bike Riding
+                </h3>
 
                 <p>
-                    <strong>13+ Years of Bike Riding Experience</strong>
+                    <strong>
+                        13+ Years of Bike Riding Experience
+                    </strong>
                 </p>
 
                 <p>
-                    <strong>50,000+ KM</strong><br>
+                    <strong>
+                        50,000+ KM
+                    </strong><br>
+
                     Riding and exploring different parts of Bangladesh by motorcycle.
                 </p>
 
                 <p>
-                    <strong>Focus:</strong><br>
+                    <strong>
+                        Focus:
+                    </strong><br>
+
                     Long-distance motorcycle touring<br>
                     Travel exploration<br>
                     Adventure & destination discovery<br>
@@ -1011,20 +1098,27 @@ footer span {
 
             </div>
 
+
             <!-- PROFESSIONAL EXPERIENCE -->
 
             <div class="card">
 
                 <div class="card-icon">⚓</div>
 
-                <h3>Professional Experience</h3>
+                <h3>
+                    Professional Experience
+                </h3>
 
                 <p>
-                    <strong>POS Operator — Sailor</strong>
+                    <strong>
+                        POS Operator — Sailor
+                    </strong>
                 </p>
 
                 <p>
-                    <strong>2023–2024</strong>
+                    <strong>
+                        2023–2024
+                    </strong>
                 </p>
 
                 <p>
@@ -1034,6 +1128,13 @@ footer span {
                 </p>
 
             </div>
+
+        </div>
+
+
+        <!-- CENTERED TRAVEL VLOG + GAMING VIDEO -->
+
+        <div class="portfolio-row">
 
             <!-- TRAVEL VLOG -->
 
@@ -1047,7 +1148,9 @@ footer span {
 
                 <div class="card-icon">💼</div>
 
-                <h3>Travel Vlog</h3>
+                <h3>
+                    Travel Vlog
+                </h3>
 
                 <p>
                     Cinematic travel vlog editing, storytelling,
@@ -1063,6 +1166,7 @@ footer span {
 
             </div>
 
+
             <!-- GAMING VIDEO -->
 
             <div class="card">
@@ -1075,7 +1179,9 @@ footer span {
 
                 <div class="card-icon">🚀</div>
 
-                <h3>Gaming Video</h3>
+                <h3>
+                    Gaming Video
+                </h3>
 
                 <p>
                     Gaming video editing with exciting moments,
@@ -1092,6 +1198,7 @@ footer span {
             </div>
 
         </div>
+
 
         <!-- SKILLS -->
 
@@ -1150,11 +1257,15 @@ footer span {
 
         <div class="section-title">
 
-            <div class="small">MY VLOGGING CHANNEL</div>
+            <div class="small">
+                MY VLOGGING CHANNEL
+            </div>
 
             <h2>
                 Explore With
-                <span style="color:#ffae00">Me.</span>
+                <span style="color:#ffae00">
+                    Me.
+                </span>
             </h2>
 
             <p>
@@ -1164,7 +1275,10 @@ footer span {
 
         </div>
 
+
         <div class="featured">
+
+            <!-- TRAVEL VLOG -->
 
             <div class="feature">
 
@@ -1173,9 +1287,13 @@ footer span {
                     alt="Travel Vlog"
                 >
 
-                <div class="emoji">🎥</div>
+                <div class="emoji">
+                    🎥
+                </div>
 
-                <h3>Travel Vlogs</h3>
+                <h3>
+                    Travel Vlogs
+                </h3>
 
                 <p>
                     Discovering beautiful places and sharing
@@ -1191,6 +1309,9 @@ footer span {
 
             </div>
 
+
+            <!-- FOOD -->
+
             <div class="feature">
 
                 <img
@@ -1198,9 +1319,13 @@ footer span {
                     alt="Food & Lifestyle"
                 >
 
-                <div class="emoji">🍜</div>
+                <div class="emoji">
+                    🍜
+                </div>
 
-                <h3>Food & Lifestyle</h3>
+                <h3>
+                    Food & Lifestyle
+                </h3>
 
                 <p>
                     Exploring local food, restaurants and
@@ -1230,11 +1355,15 @@ footer span {
 
         <div class="section-title">
 
-            <div class="small">MY GAMING CHANNEL</div>
+            <div class="small">
+                MY GAMING CHANNEL
+            </div>
 
             <h2>
                 Play.
-                <span style="color:#ffae00">Compete.</span>
+                <span style="color:#ffae00">
+                    Compete.
+                </span>
                 Repeat.
             </h2>
 
@@ -1248,9 +1377,13 @@ footer span {
 
             <div class="card">
 
-                <div class="card-icon">🎮</div>
+                <div class="card-icon">
+                    🎮
+                </div>
 
-                <h3>Gameplay</h3>
+                <h3>
+                    Gameplay
+                </h3>
 
                 <p>
                     Full gameplay videos and exciting gaming sessions.
@@ -1265,11 +1398,16 @@ footer span {
 
             </div>
 
+
             <div class="card">
 
-                <div class="card-icon">🔥</div>
+                <div class="card-icon">
+                    🔥
+                </div>
 
-                <h3>Highlights</h3>
+                <h3>
+                    Highlights
+                </h3>
 
                 <p>
                     Best moments, clutch plays and funny highlights.
@@ -1281,11 +1419,16 @@ footer span {
 
             </div>
 
+
             <div class="card">
 
-                <div class="card-icon">🏆</div>
+                <div class="card-icon">
+                    🏆
+                </div>
 
-                <h3>Challenges</h3>
+                <h3>
+                    Challenges
+                </h3>
 
                 <p>
                     Gaming challenges, competitions and experiments.
@@ -1311,11 +1454,15 @@ footer span {
 
         <div class="section-title">
 
-            <div class="small">TRAVEL DIARIES</div>
+            <div class="small">
+                TRAVEL DIARIES
+            </div>
 
             <h2>
                 Go Somewhere.
-                <span style="color:#ffae00">Feel Everything.</span>
+                <span style="color:#ffae00">
+                    Feel Everything.
+                </span>
             </h2>
 
             <p>
@@ -1324,13 +1471,16 @@ footer span {
 
         </div>
 
-        <div class="cards">
+
+        <div class="travel-grid">
 
             <!-- BEAUTIFUL DESTINATIONS -->
 
             <div class="card travel-card">
 
-                <h3>🌄 Beautiful Destinations</h3>
+                <h3>
+                    🌄 Beautiful Destinations
+                </h3>
 
                 <div class="slider-box">
 
@@ -1343,11 +1493,14 @@ footer span {
 
             </div>
 
+
             <!-- BIKE ADVENTURES -->
 
             <div class="card bike-card">
 
-                <h3>🏍️ Bike Adventures</h3>
+                <h3>
+                    🏍️ Bike Adventures
+                </h3>
 
                 <div class="bike-slider">
 
@@ -1386,11 +1539,14 @@ footer span {
 
             </div>
 
+
             <!-- TRAVEL PHOTOGRAPHY -->
 
             <div class="card travel-card">
 
-                <h3>📸 Travel Photography</h3>
+                <h3>
+                    📸 Travel Photography
+                </h3>
 
                 <div class="travel-slider">
 
@@ -1444,18 +1600,24 @@ footer span {
         <div class="about-grid">
 
             <div class="about-box">
-    <img
-        src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/About%20Me%201.jpg?raw=true"
-        alt="About Mr. Musha"
-        style="width:100%; height:100%; object-fit:cover; border-radius:20px;"
-    >
-</div>
+
+                <img
+                    src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/About%20Me%201.jpg?raw=true"
+                    alt="About Mr. Musha"
+                >
+
+            </div>
+
 
             <div class="about-text">
 
-                <div class="tag">ABOUT ME</div>
+                <div class="tag">
+                    ABOUT ME
+                </div>
 
-                <h2>More Than A Creator.</h2>
+                <h2>
+                    More Than A Creator.
+                </h2>
 
                 <p>
                     I'm Mr. Musha — a video editor, vlogger, gamer,
@@ -1467,7 +1629,10 @@ footer span {
                     and every story deserves to be shared.
                 </p>
 
-                <a href="#contact" class="btn primary">
+                <a
+                    href="#contact"
+                    class="btn primary"
+                >
                     Let's Connect
                 </a>
 
@@ -1487,9 +1652,13 @@ footer span {
 
         <div class="contact-box">
 
-            <div class="tag">GET IN TOUCH</div>
+            <div class="tag">
+                GET IN TOUCH
+            </div>
 
-            <h2>Let's Create Something.</h2>
+            <h2>
+                Let's Create Something.
+            </h2>
 
             <p>
                 Have a project, collaboration idea or just want to say hello?
@@ -1505,10 +1674,33 @@ footer span {
 
             <div class="socials">
 
-                <a href="https://www.youtube.com/@mushaexplore9125" target="_blank">YouTube</a>
-                <a href="https://www.facebook.com/TareqBenMushaa" target="_blank">Facebook</a>
-                <a href="#" target="_blank">Instagram</a>
-                <a href="https://www.youtube.com/@mushagaminglive" target="_blank">Gaming YouTube</a>
+                <a
+                    href="https://www.youtube.com/@mushaexplore9125"
+                    target="_blank"
+                >
+                    YouTube
+                </a>
+
+                <a
+                    href="https://www.facebook.com/TareqBenMushaa"
+                    target="_blank"
+                >
+                    Facebook
+                </a>
+
+                <a
+                    href="#"
+                    target="_blank"
+                >
+                    Instagram
+                </a>
+
+                <a
+                    href="https://www.youtube.com/@mushagaminglive"
+                    target="_blank"
+                >
+                    Gaming YouTube
+                </a>
 
             </div>
 
@@ -1553,7 +1745,7 @@ document
     });
 
 
-/* TRAVEL PHOTOGRAPHY SLIDESHOW */
+/* TRAVEL PHOTOGRAPHY */
 
 const travelPhotos = [
 
@@ -1579,8 +1771,9 @@ function showTravelSlide(index) {
         (index + travelPhotos.length)
         % travelPhotos.length;
 
-    document.getElementById("travelSlide").src =
-        travelPhotos[currentTravelSlide];
+    document
+        .getElementById("travelSlide")
+        .src = travelPhotos[currentTravelSlide];
 
     const dots =
         document.querySelectorAll(".slider-dots span");
@@ -1619,7 +1812,7 @@ setInterval(function() {
 }, 4000);
 
 
-/* BIKE ADVENTURES SLIDESHOW */
+/* BIKE ADVENTURES */
 
 const bikePhotos = [
 
@@ -1645,8 +1838,9 @@ function showBikeSlide(index) {
         (index + bikePhotos.length)
         % bikePhotos.length;
 
-    document.getElementById("bikeSlide").src =
-        bikePhotos[currentBikeSlide];
+    document
+        .getElementById("bikeSlide")
+        .src = bikePhotos[currentBikeSlide];
 
     const dots =
         document.querySelectorAll(".bike-dots span");
