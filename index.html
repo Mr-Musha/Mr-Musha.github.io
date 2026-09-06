@@ -1331,6 +1331,42 @@ document.querySelectorAll(".nav-links a").forEach(function(link) {
         document.getElementById("navLinks").classList.remove("active");
     });
 });
+    const bikePhotos = [
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%201.jpeg?raw=true",
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%202.jpeg?raw=true",
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%203.jpeg?raw=true",
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%204.jpeg?raw=true",
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%205.jpeg?raw=true",
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%206.jpeg?raw=true"
+];
+
+let currentBikeSlide = 0;
+
+function showBikeSlide(index) {
+    currentBikeSlide = (index + bikePhotos.length) % bikePhotos.length;
+
+    document.getElementById("bikeSlide").src = bikePhotos[currentBikeSlide];
+
+    const dots = document.querySelectorAll(".bike-dots span");
+
+    dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentBikeSlide);
+    });
+}
+
+function changeBikeSlide(direction) {
+    showBikeSlide(currentBikeSlide + direction);
+}
+
+function setBikeSlide(index) {
+    showBikeSlide(index);
+}
+
+showBikeSlide(0);
+
+setInterval(() => {
+    changeBikeSlide(1);
+}, 4000);
 </script>
 
 </body>
