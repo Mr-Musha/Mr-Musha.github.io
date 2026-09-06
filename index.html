@@ -6,7 +6,7 @@
 
 <title>Mr.Musha.info | Creator • Explorer • Gamer</title>
 
-<meta name="description" content="Mr.Musha.info - Video Editor, Vlogger, Gamer, Traveler and Food Explorer.">
+<meta name="description" content="Mr.Musha.info - Video Editor, Vlogger, Gamer, Traveler and Explorer.">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
@@ -50,6 +50,8 @@ section {
     max-width: 1250px;
     margin: auto;
 }
+
+/* SECTION TITLE */
 
 .section-title {
     text-align: center;
@@ -279,49 +281,71 @@ nav {
     display: flex;
     justify-content: space-between;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .visual-top {
     color: #777;
     font-size: 11px;
-    letter-spacing: 3px;
-}
-
-.visual-top span:last-child {
-    color: var(--accent);
+    letter-spacing: 2px;
 }
 
 .visual-center {
+    flex: 1;
     display: flex;
+    align-items: center;
     justify-content: center;
     position: relative;
     z-index: 2;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.visual-center > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.visual-center img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
 }
 
 .play-overlay {
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    width:90px;
-    height:90px;
-    border:2px solid var(--accent);
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--accent);
-    font-size:28px;
-    background:rgba(0,0,0,.65);
-    box-shadow:0 0 35px rgba(255,174,0,.35);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 28px;
+    background: rgba(0,0,0,.65);
+    box-shadow: 0 0 35px rgba(255,174,0,.35);
+    transition: .3s;
+}
+
+.visual-center a:hover .play-overlay {
+    transform: translate(-50%, -50%) scale(1.08);
+    background: rgba(0,0,0,.8);
 }
 
 .visual-bottom {
     flex-direction: column;
     gap: 12px;
     position: relative;
-    z-index: 2;
+    z-index: 3;
+    margin-top: 15px;
 }
 
 .visual-bottom strong {
@@ -348,6 +372,7 @@ nav {
     border-radius: 15px;
     padding: 35px;
     transition: .35s;
+    min-width: 0;
 }
 
 .card:hover {
@@ -358,7 +383,7 @@ nav {
 
 .card-icon {
     font-size: 35px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .card h3 {
@@ -437,9 +462,17 @@ nav {
     border-color: var(--border);
 }
 
+.feature img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
 .feature .emoji {
     font-size: 45px;
-    margin-bottom: auto;
+    margin-bottom: 20px;
 }
 
 .feature h3 {
@@ -450,6 +483,94 @@ nav {
 .feature p {
     color: var(--muted);
     line-height: 1.7;
+}
+
+/* TRAVEL SLIDERS */
+
+.travel-card,
+.bike-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-box,
+.travel-slider,
+.bike-slider {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-top: 5px;
+}
+
+.slider-box img,
+.travel-slider img,
+.bike-slider img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+}
+
+.slider-btn,
+.bike-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,.65);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.slider-btn:hover,
+.bike-btn:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+.slider-btn.prev,
+.bike-prev {
+    left: 12px;
+}
+
+.slider-btn.next,
+.bike-next {
+    right: 12px;
+}
+
+.slider-dots,
+.bike-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 7px;
+    z-index: 5;
+}
+
+.slider-dots span,
+.bike-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: .6;
+    cursor: pointer;
+}
+
+.slider-dots span.active,
+.bike-dots span.active {
+    background: var(--accent);
+    opacity: 1;
 }
 
 /* ABOUT */
@@ -591,11 +712,6 @@ footer span {
     50% { transform: translateY(-15px); }
 }
 
-@keyframes pulse {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-}
-
 @keyframes shine {
     0% { transform: translateX(-100%); }
     35%,100% { transform: translateX(100%); }
@@ -611,6 +727,7 @@ footer span {
 /* MOBILE */
 
 @media(max-width:900px) {
+
     .nav-links {
         position: absolute;
         top: 75px;
@@ -661,9 +778,19 @@ footer span {
     .about-text h2 {
         font-size: 32px;
     }
+
+    .slider-box,
+    .travel-slider,
+    .bike-slider,
+    .slider-box img,
+    .travel-slider img,
+    .bike-slider img {
+        height: 280px;
+    }
 }
 
 @media(max-width:500px) {
+
     section {
         padding: 80px 5%;
     }
@@ -678,6 +805,7 @@ footer span {
 
     .hero-stats {
         gap: 20px;
+        flex-wrap: wrap;
     }
 
     .visual-card {
@@ -687,6 +815,19 @@ footer span {
 
     .contact-box h2 {
         font-size: 30px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    .slider-box,
+    .travel-slider,
+    .bike-slider,
+    .slider-box img,
+    .travel-slider img,
+    .bike-slider img {
+        height: 240px;
     }
 }
 </style>
@@ -733,7 +874,7 @@ footer span {
 
             <p>
                 I'm Mr. Musha — a Video Editor, Vlogger, Gamer and Explorer.
-                I love travelling, discovering amazing food,
+                I love travelling, discovering amazing places,
                 playing games and turning experiences into stories.
             </p>
 
@@ -747,10 +888,12 @@ footer span {
                     <strong>VIDEO</strong>
                     <span>EDITOR</span>
                 </div>
+
                 <div>
                     <strong>TRAVEL</strong>
                     <span>EXPLORER</span>
                 </div>
+
                 <div>
                     <strong>GAMING</strong>
                     <span>CREATOR</span>
@@ -759,29 +902,36 @@ footer span {
         </div>
 
         <div class="hero-visual">
+
             <div class="visual-card">
+
                 <div class="visual-top">
                     <span>WELCOME TO MR.MUSHA'S WORLD</span>
-                    
                 </div>
 
                 <div class="visual-center">
-    <a href="https://www.youtube.com/watch?v=F2DeKmxzT3s" target="_blank"
-       style="position:relative; display:block; width:100%; height:100%;">
 
-        <img src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/My%20Bike.jpeg?raw=true"
-             alt="My Bike"
-             style="width:100%; height:100%; object-fit:cover; border-radius:20px;">
+                    <a href="https://www.youtube.com/watch?v=F2DeKmxzT3s"
+                       target="_blank">
 
-        <span class="play-overlay">▶</span>
-    </a>
-</div>
+                        <img
+                            src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/My%20Bike.jpeg?raw=true"
+                            alt="My Bike"
+                        >
+
+                        <span class="play-overlay">▶</span>
+
+                    </a>
+
+                </div>
 
                 <div class="visual-bottom">
                     <strong>CREATE • EXPLORE • SHARE</strong>
                     <span>VIDEO • TRAVEL • GAMING</span>
                 </div>
+
             </div>
+
         </div>
 
     </div>
@@ -790,424 +940,505 @@ footer span {
 <!-- PROFESSIONAL -->
 
 <section class="professional" id="professional">
+
     <div class="container">
 
         <div class="section-title">
             <div class="small">MY PROFESSIONAL LIFE</div>
-            <h2>Turning Ideas Into <span style="color:#ffae00">Stories.</span></h2>
+
+            <h2>
+                Turning Ideas Into
+                <span style="color:#ffae00">Stories.</span>
+            </h2>
+
             <p>
                 I create engaging visual content through video editing,
-                storytelling and creative production.
-            </p>
-        </div>
-
-       <div class="card">
-    <div class="card-icon">🎬</div>
-    <h3>Video Editing</h3>
-
-    <p>
-        <strong>9+ Years of Experience</strong>
-    </p>
-
-    <p>
-        <strong>Software & Tools:</strong><br>
-        Adobe Premiere Pro • After Effects • Camtasia • CapCut
-    </p>
-
-    <p>
-        <strong>Specialized In:</strong><br>
-        ✈️ Travel Vlog — Full Editing + Color Grading<br>
-        🎮 Gaming Video — Gameplay + Highlights
-    </p>
-</div>
-        <div class="card">
-    <div class="card-icon">🏍️</div>
-    <h3>Traveling & Bike Riding</h3>
-
-    <p>
-        <strong>13+ Years of Bike Riding Experience</strong>
-    </p>
-
-    <p>
-        <strong>50,000+ KM</strong><br>
-        Riding and exploring different parts of Bangladesh by motorcycle.
-    </p>
-
-    <p>
-        <strong>Focus:</strong><br>
-        Long-distance motorcycle touring<br>
-        Travel exploration<br>
-        Adventure & destination discovery<br>
-        Travel content creation
-    </p>
-</div>
-        <div class="card">
-    <div class="card-icon">⚓</div>
-    <h3>Professional Experience</h3>
-
-    <p>
-        <strong>POS Operator — Sailor</strong>
-    </p>
-
-    <p>
-        <strong>2023–2024</strong>
-    </p>
-
-    <p>
-        Professional experience in sailing life with practical
-        knowledge of operations, responsibility and day-to-day
-        professional work.
-    </p>
-</div>
-
-            <div class="card">
-                <img src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/cox.png?raw=true" style="width:100%; border-radius:12px; margin-bottom:20px;">
-                <div class="card-icon">💼</div>
-                <h3>Travel Vlog </h3>
-                <p>
-                    Cinematic travel vlog editing, storytelling, smooth transitions and creative visuals.
-                </p>
-                <a href="https://www.youtube.com/watch?v=H2pNXnYnZT8" target="_blank">Watch My Vlog →</a>
-            </div>
-
-            <div class="card">
-                <img src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Gaming%20Setup.png?raw=true" style="width:100%; border-radius:12px; margin-bottom:20px;">
-                <div class="card-icon">🚀</div>
-                <h3>Gaming Video</h3>
-                <p>
-                   Gaming video editing with exciting moments, highlights and engaging gameplay.
-                </p>
-                   <a href="https://www.youtube.com/watch?v=CxMsgvMZ-N0" target="_blank">Watch My Gameplay →</a>
-            </div>
-
-        </div>
-
-        <div style="max-width:700px;margin:50px auto 0">
-
-            <div class="skill">
-                <div class="skill-title">
-                    <span>Video Editing</span>
-                    <span>90%</span>
-                </div>
-                <div class="skill-bar"><span style="width:90%"></span></div>
-            </div>
-
-            <div class="skill">
-                <div class="skill-title">
-                    <span>Storytelling</span>
-                    <span>85%</span>
-                </div>
-                <div class="skill-bar"><span style="width:85%"></span></div>
-            </div>
-
-            <div class="skill">
-                <div class="skill-title">
-                    <span>Creative Direction</span>
-                    <span>80%</span>
-                </div>
-                <div class="skill-bar"><span style="width:80%"></span></div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<!-- VLOGGING -->
-
-<section id="vlogging">
-    <div class="container">
-
-        <div class="section-title">
-            <div class="small">MY VLOGGING CHANNEL</div>
-            <h2>Explore With <span style="color:#ffae00">Me.</span></h2>
-            <p>
-                Travel, food, lifestyle and real experiences
-                captured through my camera.
-            </p>
-        </div>
-
-        <div class="featured">
-
-            <div class="feature">
-                <img src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%20Vlog.png?raw=true"
-     alt="Travel Vlog"
-     style="width:100%; border-radius:15px; margin-bottom:20px;">
-                <div class="emoji">🎥</div>
-                <h3>Travel Vlogs</h3>
-                <p>
-                    Discovering beautiful places and sharing
-                    the journey with you.
-                </p>
-                <a href="https://www.youtube.com/@mushaexplore9125" target="_blank">Watch Channel →</a>
-            </div>
-
-            <div class="feature">
-                <img src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Food.png?raw=true"
-     alt="Food & Lifestyle"
-     style="width:100%; border-radius:15px; margin-bottom:20px;">
-                <div class="emoji">🍜</div>
-                <h3>Food & Food</h3>
-                <p>
-                    Exploring local food, restaurants and
-                    everyday adventures.
-                </p>
-                <a href="https://www.youtube.com/@mushaexplore9125" target="_blank">Watch Videos →</a>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<!-- GAMING -->
-
-<section class="professional" id="gaming">
-    <div class="container">
-
-        <div class="section-title">
-            <div class="small">MY GAMING CHANNEL</div>
-            <h2>Play. <span style="color:#ffae00">Compete.</span> Repeat.</h2>
-            <p>
-                Gameplay, highlights, challenges and gaming moments.
+                storytelling, exploration and real-world experience.
             </p>
         </div>
 
         <div class="cards">
 
-            <div class="card">
-                <div class="card-icon">🎮</div>
-                <h3>Gameplay</h3>
-                <p>
-                    Full gameplay videos and exciting gaming sessions.
-                </p>
-                <a href="https://www.youtube.com/@mushagaminglive" target="_blank">Watch Gameplay →</a>
-            </div>
+            <!-- VIDEO EDITING -->
 
             <div class="card">
-                <div class="card-icon">🔥</div>
-                <h3>Highlights</h3>
+
+                <div class="card-icon">🎬</div>
+
+                <h3>Video Editing</h3>
+
                 <p>
-                    Best moments, clutch plays and funny highlights.
+                    <strong>9+ Years of Experience</strong>
                 </p>
-                <a href="#" target="_blank">View Highlights →</a>
+
+                <p>
+                    <strong>Software & Tools:</strong><br>
+                    Adobe Premiere Pro • After Effects • Camtasia • CapCut
+                </p>
+
+                <p>
+                    <strong>Specialized In:</strong><br>
+                    ✈️ Travel Vlog — Full Editing + Color Grading<br>
+                    🎮 Gaming Video — Gameplay + Highlights
+                </p>
+
             </div>
 
+            <!-- TRAVELING -->
+
             <div class="card">
-                <div class="card-icon">🏆</div>
-                <h3>Challenges</h3>
+
+                <div class="card-icon">🏍️</div>
+
+                <h3>Traveling & Bike Riding</h3>
+
                 <p>
-                    Gaming challenges, competitions and experiments.
+                    <strong>13+ Years of Bike Riding Experience</strong>
                 </p>
-                <a href="#" target="_blank">Explore Gaming →</a>
+
+                <p>
+                    <strong>50,000+ KM</strong><br>
+                    Riding and exploring different parts of Bangladesh by motorcycle.
+                </p>
+
+                <p>
+                    <strong>Focus:</strong><br>
+                    Long-distance motorcycle touring<br>
+                    Travel exploration<br>
+                    Adventure & destination discovery<br>
+                    Travel content creation
+                </p>
+
+            </div>
+
+            <!-- PROFESSIONAL EXPERIENCE -->
+
+            <div class="card">
+
+                <div class="card-icon">⚓</div>
+
+                <h3>Professional Experience</h3>
+
+                <p>
+                    <strong>POS Operator — Sailor</strong>
+                </p>
+
+                <p>
+                    <strong>2023–2024</strong>
+                </p>
+
+                <p>
+                    Professional experience in sailing life with practical
+                    knowledge of operations, responsibility and day-to-day
+                    professional work.
+                </p>
+
+            </div>
+
+            <!-- TRAVEL VLOG -->
+
+            <div class="card">
+
+                <img
+                    src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/cox.png?raw=true"
+                    alt="Travel Vlog"
+                    style="width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:20px;"
+                >
+
+                <div class="card-icon">💼</div>
+
+                <h3>Travel Vlog</h3>
+
+                <p>
+                    Cinematic travel vlog editing, storytelling,
+                    smooth transitions and creative visuals.
+                </p>
+
+                <a
+                    href="https://www.youtube.com/watch?v=H2pNXnYnZT8"
+                    target="_blank"
+                >
+                    Watch My Vlog →
+                </a>
+
+            </div>
+
+            <!-- GAMING VIDEO -->
+
+            <div class="card">
+
+                <img
+                    src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Gaming%20Setup.png?raw=true"
+                    alt="Gaming Video"
+                    style="width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:20px;"
+                >
+
+                <div class="card-icon">🚀</div>
+
+                <h3>Gaming Video</h3>
+
+                <p>
+                    Gaming video editing with exciting moments,
+                    highlights and engaging gameplay.
+                </p>
+
+                <a
+                    href="https://www.youtube.com/watch?v=CxMsgvMZ-N0"
+                    target="_blank"
+                >
+                    Watch My Gameplay →
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- SKILLS -->
+
+        <div style="max-width:700px;margin:50px auto 0">
+
+            <div class="skill">
+
+                <div class="skill-title">
+                    <span>Video Editing</span>
+                    <span>90%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <span style="width:90%"></span>
+                </div>
+
+            </div>
+
+            <div class="skill">
+
+                <div class="skill-title">
+                    <span>Storytelling</span>
+                    <span>85%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <span style="width:85%"></span>
+                </div>
+
+            </div>
+
+            <div class="skill">
+
+                <div class="skill-title">
+                    <span>Creative Direction</span>
+                    <span>80%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <span style="width:80%"></span>
+                </div>
+
             </div>
 
         </div>
 
     </div>
+
+</section>
+
+<!-- VLOGGING -->
+
+<section id="vlogging">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="small">MY VLOGGING CHANNEL</div>
+
+            <h2>
+                Explore With
+                <span style="color:#ffae00">Me.</span>
+            </h2>
+
+            <p>
+                Travel, food, lifestyle and real experiences
+                captured through my camera.
+            </p>
+
+        </div>
+
+        <div class="featured">
+
+            <div class="feature">
+
+                <img
+                    src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%20Vlog.png?raw=true"
+                    alt="Travel Vlog"
+                >
+
+                <div class="emoji">🎥</div>
+
+                <h3>Travel Vlogs</h3>
+
+                <p>
+                    Discovering beautiful places and sharing
+                    the journey with you.
+                </p>
+
+                <a
+                    href="https://www.youtube.com/@mushaexplore9125"
+                    target="_blank"
+                >
+                    Watch Channel →
+                </a>
+
+            </div>
+
+            <div class="feature">
+
+                <img
+                    src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Food.png?raw=true"
+                    alt="Food & Lifestyle"
+                >
+
+                <div class="emoji">🍜</div>
+
+                <h3>Food & Lifestyle</h3>
+
+                <p>
+                    Exploring local food, restaurants and
+                    everyday adventures.
+                </p>
+
+                <a
+                    href="https://www.youtube.com/@mushaexplore9125"
+                    target="_blank"
+                >
+                    Watch Videos →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GAMING -->
+
+<section class="professional" id="gaming">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="small">MY GAMING CHANNEL</div>
+
+            <h2>
+                Play.
+                <span style="color:#ffae00">Compete.</span>
+                Repeat.
+            </h2>
+
+            <p>
+                Gameplay, highlights, challenges and gaming moments.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">🎮</div>
+
+                <h3>Gameplay</h3>
+
+                <p>
+                    Full gameplay videos and exciting gaming sessions.
+                </p>
+
+                <a
+                    href="https://www.youtube.com/@mushagaminglive"
+                    target="_blank"
+                >
+                    Watch Gameplay →
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-icon">🔥</div>
+
+                <h3>Highlights</h3>
+
+                <p>
+                    Best moments, clutch plays and funny highlights.
+                </p>
+
+                <a href="#" target="_blank">
+                    View Highlights →
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-icon">🏆</div>
+
+                <h3>Challenges</h3>
+
+                <p>
+                    Gaming challenges, competitions and experiments.
+                </p>
+
+                <a href="#" target="_blank">
+                    Explore Gaming →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 <!-- TRAVEL -->
 
 <section id="travel">
+
     <div class="container">
 
         <div class="section-title">
+
             <div class="small">TRAVEL DIARIES</div>
-            <h2>Go Somewhere. <span style="color:#ffae00">Feel Everything.</span></h2>
+
+            <h2>
+                Go Somewhere.
+                <span style="color:#ffae00">Feel Everything.</span>
+            </h2>
+
             <p>
                 Every journey becomes a story worth remembering.
             </p>
+
         </div>
 
-       <div class="card">
-    <div class="card-icon">🌄</div>
-    <h3>Beautiful Destinations</h3>
-    <p>
-        Discovering beautiful places and unforgettable destinations.
-    </p>
-</div>
+        <div class="cards">
 
-            <div class="card">
-    <h3>🏍️ Bike Adventures</h3>
+            <!-- BEAUTIFUL DESTINATIONS -->
 
-    <div class="bike-slider">
+            <div class="card travel-card">
 
-        <img id="bikeSlide"
-             src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%201.jpeg?raw=true"
-             alt="Bike Adventures">
+                <h3>🌄 Beautiful Destinations</h3>
 
-        <button class="bike-btn bike-prev" onclick="changeBikeSlide(-1)">❮</button>
-        <button class="bike-btn bike-next" onclick="changeBikeSlide(1)">❯</button>
+                <div class="slider-box">
 
-        <div class="bike-dots">
-            <span onclick="setBikeSlide(0)"></span>
-            <span onclick="setBikeSlide(1)"></span>
-            <span onclick="setBikeSlide(2)"></span>
-            <span onclick="setBikeSlide(3)"></span>
-            <span onclick="setBikeSlide(4)"></span>
-            <span onclick="setBikeSlide(5)"></span>
-        </div>
+                    <img
+                        src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Beautiful%20Destinations.jpeg?raw=true"
+                        alt="Beautiful Destinations"
+                    >
 
-    </div>
-</div>
+                </div>
 
-           <div class="card">
-    <h3>📸 Travel Photography</h3>
+            </div>
 
-    <div class="travel-slider">
+            <!-- BIKE ADVENTURES -->
 
-        <img id="travelSlide"
-             src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%201.jpeg?raw=true"
-             alt="Travel Photography">
+            <div class="card bike-card">
 
-        <button class="slider-btn prev" onclick="changeTravelSlide(-1)">❮</button>
-        <button class="slider-btn next" onclick="changeTravelSlide(1)">❯</button>
+                <h3>🏍️ Bike Adventures</h3>
 
-        <div class="slider-dots">
-            <span onclick="setTravelSlide(0)"></span>
-            <span onclick="setTravelSlide(1)"></span>
-            <span onclick="setTravelSlide(2)"></span>
-            <span onclick="setTravelSlide(3)"></span>
-            <span onclick="setTravelSlide(4)"></span>
-            <span onclick="setTravelSlide(5)"></span>
-        </div>
+                <div class="bike-slider">
 
-    </div>
-</div>
+                    <img
+                        id="bikeSlide"
+                        src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%201.jpeg?raw=true"
+                        alt="Bike Adventures"
+                    >
 
-<style>
-.travel-slider {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 15px;
-    margin-top: 20px;
-}
+                    <button
+                        class="bike-btn bike-prev"
+                        onclick="changeBikeSlide(-1)"
+                    >
+                        ❮
+                    </button>
 
-.travel-slider img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    display: block;
-}
+                    <button
+                        class="bike-btn bike-next"
+                        onclick="changeBikeSlide(1)"
+                    >
+                        ❯
+                    </button>
 
-.bike-slider {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 15px;
-    margin-top: 20px;
-}
+                    <div class="bike-dots">
 
-.bike-slider img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    display: block;
-}
+                        <span onclick="setBikeSlide(0)"></span>
+                        <span onclick="setBikeSlide(1)"></span>
+                        <span onclick="setBikeSlide(2)"></span>
+                        <span onclick="setBikeSlide(3)"></span>
+                        <span onclick="setBikeSlide(4)"></span>
+                        <span onclick="setBikeSlide(5)"></span>
 
-.bike-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 42px;
-    height: 42px;
-    border: none;
-    border-radius: 50%;
-    background: rgba(0,0,0,.65);
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-}
+                    </div>
 
-.bike-btn:hover {
-    background: #ffae00;
-    color: #000;
-}
+                </div>
 
-.bike-prev {
-    left: 12px;
-}
+            </div>
 
-.bike-next {
-    right: 12px;
-}
+            <!-- TRAVEL PHOTOGRAPHY -->
 
-.bike-dots {
-    position: absolute;
-    bottom: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 7px;
-}
+            <div class="card travel-card">
 
-.bike-dots span {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: #fff;
-    opacity: .6;
-    cursor: pointer;
-}
+                <h3>📸 Travel Photography</h3>
 
-.bike-dots span.active {
-    background: #ffae00;
-    opacity: 1;
-}
-</style>
+                <div class="travel-slider">
 
-<script>
-const travelPhotos = [
-    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%201.jpeg?raw=true",
-    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%202.jpeg?raw=true",
-    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%203.jpeg?raw=true",
-    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%204.jpeg?raw=true",
-    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%205.jpeg?raw=true",
-    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%206.jpeg?raw=true"
-];
+                    <img
+                        id="travelSlide"
+                        src="https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%201.jpeg?raw=true"
+                        alt="Travel Photography"
+                    >
 
-let currentTravelSlide = 0;
+                    <button
+                        class="slider-btn prev"
+                        onclick="changeTravelSlide(-1)"
+                    >
+                        ❮
+                    </button>
 
-function showTravelSlide(index) {
-    currentTravelSlide = (index + travelPhotos.length) % travelPhotos.length;
+                    <button
+                        class="slider-btn next"
+                        onclick="changeTravelSlide(1)"
+                    >
+                        ❯
+                    </button>
 
-    document.getElementById("travelSlide").src = travelPhotos[currentTravelSlide];
+                    <div class="slider-dots">
 
-    const dots = document.querySelectorAll(".slider-dots span");
-    dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentTravelSlide);
-    });
-}
+                        <span onclick="setTravelSlide(0)"></span>
+                        <span onclick="setTravelSlide(1)"></span>
+                        <span onclick="setTravelSlide(2)"></span>
+                        <span onclick="setTravelSlide(3)"></span>
+                        <span onclick="setTravelSlide(4)"></span>
+                        <span onclick="setTravelSlide(5)"></span>
 
-function changeTravelSlide(direction) {
-    showTravelSlide(currentTravelSlide + direction);
-}
+                    </div>
 
-function setTravelSlide(index) {
-    showTravelSlide(index);
-}
+                </div>
 
-showTravelSlide(0);
-
-setInterval(() => {
-    changeTravelSlide(1);
-}, 4000);
-</script>
+            </div>
 
         </div>
 
     </div>
+
 </section>
-
-<!-- FOOD -->
-
-
 
 <!-- ABOUT -->
 
 <section id="about">
+
     <div class="container">
 
         <div class="about-grid">
@@ -1217,13 +1448,14 @@ setInterval(() => {
             </div>
 
             <div class="about-text">
+
                 <div class="tag">ABOUT ME</div>
 
                 <h2>More Than A Creator.</h2>
 
                 <p>
                     I'm Mr. Musha — a video editor, vlogger, gamer,
-                    traveller and food explorer.
+                    traveller and explorer.
                 </p>
 
                 <p>
@@ -1231,17 +1463,22 @@ setInterval(() => {
                     and every story deserves to be shared.
                 </p>
 
-                <a href="#contact" class="btn primary">Let's Connect</a>
+                <a href="#contact" class="btn primary">
+                    Let's Connect
+                </a>
+
             </div>
 
         </div>
 
     </div>
+
 </section>
 
 <!-- CONTACT -->
 
 <section class="contact" id="contact">
+
     <div class="container">
 
         <div class="contact-box">
@@ -1255,20 +1492,26 @@ setInterval(() => {
                 Feel free to reach out.
             </p>
 
-            <a href="mailto:your@email.com" class="btn primary">
+            <a
+                href="mailto:your@email.com"
+                class="btn primary"
+            >
                 📩 Contact Me
             </a>
 
             <div class="socials">
+
                 <a href="#" target="_blank">YouTube</a>
                 <a href="#" target="_blank">Facebook</a>
                 <a href="#" target="_blank">Instagram</a>
                 <a href="#" target="_blank">TikTok</a>
+
             </div>
 
         </div>
 
     </div>
+
 </section>
 
 <!-- FOOTER -->
@@ -1278,51 +1521,165 @@ setInterval(() => {
 </footer>
 
 <script>
+
+/* MOBILE MENU */
+
 function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("active");
+
+    document
+        .getElementById("navLinks")
+        .classList
+        .toggle("active");
+
 }
 
-document.querySelectorAll(".nav-links a").forEach(function(link) {
-    link.addEventListener("click", function() {
-        document.getElementById("navLinks").classList.remove("active");
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            document
+                .getElementById("navLinks")
+                .classList
+                .remove("active");
+
+        });
+
     });
-});
-    const bikePhotos = [
+
+
+/* TRAVEL PHOTOGRAPHY SLIDESHOW */
+
+const travelPhotos = [
+
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%201.jpeg?raw=true",
+
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%202.jpeg?raw=true",
+
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%203.jpeg?raw=true",
+
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%204.jpeg?raw=true",
+
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%205.jpeg?raw=true",
+
+    "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Travel%206.jpeg?raw=true"
+
+];
+
+let currentTravelSlide = 0;
+
+function showTravelSlide(index) {
+
+    currentTravelSlide =
+        (index + travelPhotos.length)
+        % travelPhotos.length;
+
+    document.getElementById("travelSlide").src =
+        travelPhotos[currentTravelSlide];
+
+    const dots =
+        document.querySelectorAll(".slider-dots span");
+
+    dots.forEach(function(dot, i) {
+
+        dot.classList.toggle(
+            "active",
+            i === currentTravelSlide
+        );
+
+    });
+
+}
+
+function changeTravelSlide(direction) {
+
+    showTravelSlide(
+        currentTravelSlide + direction
+    );
+
+}
+
+function setTravelSlide(index) {
+
+    showTravelSlide(index);
+
+}
+
+showTravelSlide(0);
+
+setInterval(function() {
+
+    changeTravelSlide(1);
+
+}, 4000);
+
+
+/* BIKE ADVENTURES SLIDESHOW */
+
+const bikePhotos = [
+
     "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%201.jpeg?raw=true",
+
     "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%202.jpeg?raw=true",
+
     "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%203.jpeg?raw=true",
+
     "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%204.jpeg?raw=true",
+
     "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%205.jpeg?raw=true",
+
     "https://github.com/Mr-Musha/Mr-Musha.github.io/blob/main/Bike%206.jpeg?raw=true"
+
 ];
 
 let currentBikeSlide = 0;
 
 function showBikeSlide(index) {
-    currentBikeSlide = (index + bikePhotos.length) % bikePhotos.length;
 
-    document.getElementById("bikeSlide").src = bikePhotos[currentBikeSlide];
+    currentBikeSlide =
+        (index + bikePhotos.length)
+        % bikePhotos.length;
 
-    const dots = document.querySelectorAll(".bike-dots span");
+    document.getElementById("bikeSlide").src =
+        bikePhotos[currentBikeSlide];
 
-    dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentBikeSlide);
+    const dots =
+        document.querySelectorAll(".bike-dots span");
+
+    dots.forEach(function(dot, i) {
+
+        dot.classList.toggle(
+            "active",
+            i === currentBikeSlide
+        );
+
     });
+
 }
 
 function changeBikeSlide(direction) {
-    showBikeSlide(currentBikeSlide + direction);
+
+    showBikeSlide(
+        currentBikeSlide + direction
+    );
+
 }
 
 function setBikeSlide(index) {
+
     showBikeSlide(index);
+
 }
 
 showBikeSlide(0);
 
-setInterval(() => {
+setInterval(function() {
+
     changeBikeSlide(1);
+
 }, 4000);
+
 </script>
 
 </body>
